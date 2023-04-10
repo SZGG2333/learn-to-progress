@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      height: 400px;
+    }
+    .box1 {
+      position: relative;
+      overflow: hidden;
+      height: 400px;  /* 和sxd-square宽度相同 */
+    }
+    .sxd-square {
+      width: 100%;
+      height: 0;
+      padding-top: 100%;
+      position: relative;
+    }
+    .sxd-box {
+      transform: rotateZ(-90deg) rotateY(180deg);
+      transform-origin: left top;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    .sxd-rebox {
+      /* display: flex;
+      flex-direction: row; */
+      transform: rotate(90deg) rotateX(180deg);
+      transform-origin: left top;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sxd-box::-webkit-scrollbar {
+      width           : 7px;
+      height          : 7px;
+      background-color: #f5f5f5;
+    }
+  
+    /*定义滚动条轨道 内阴影+圆角*/
+    .sxd-box::-webkit-scrollbar-track {
+      box-shadow        : inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius     : 10px;
+      background-color  : #f5f5f5;
+    }
+  
+    /*定义滑块 内阴影+圆角*/
+    .sxd-box::-webkit-scrollbar-thumb {
+      border-radius     : 10px;
+      box-shadow        : inset 0 0 6px rgba(0, 0, 0, 0.1);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      background-color  : #c8c8c8;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    https://blog.csdn.net/weixin_41714669/article/details/127016843
+   -->
+  <div class="box1">
+    <div class="sxd-square" name="绘制一个正方形">
+      <div class="sxd-box" name="继承正方形高度并旋转">
+        <div class="sxd-rebox" name="旋转回原来的方向" v-bind="$attrs">
+          <div class="content">
+            <img src="../../images/bird.png" alt="">
+            <img src="../../images/bird.png" alt="">
+            <img src="../../images/bird.png" alt="">
+            <img src="../../images/bird.png" alt="">
+            <img src="../../images/bird.png" alt="">
+            <img src="../../images/bird.png" alt="">
+            <img src="../../images/bird.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
