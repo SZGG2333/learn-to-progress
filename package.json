@@ -23,6 +23,6 @@
     }
   },
   "devDependencies": {
-    "cz-customizable": "^7.0.0"
+    "cz-customizable": "^6.3.0"
   }
 }
