@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: black;
+    }
+    .container {
+      margin-top: 50px;
+      filter: contrast(20); /* 设置对比度，与元素背景颜色对比 */
+      background-color: black;
+      text-align: center;
+      padding: 20px;
+    }
+
+    span {
+      color: white;
+      font-size: 50px;
+      animation: letterspacing 5s forwards;
+      letter-spacing: -22px; /* 展开效果 */
+    }
+
+    @keyframes letterspacing {
+      from {
+        letter-spacing: -22px;
+        filter: blur(8px);
+      }
+
+      to {
+        letter-spacing: 10px;
+        filter: blur(2px);
+        color: #fff;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+  <!-- 
+    伸缩展开:通过letter-spacing调整字间距即可实现文字的伸缩展开
+    模糊到清晰交融:通过filter:contrast（对比度）和filter:blur（模糊）实现
+  -->
+  <div class="container">
+    <span>My heart will go on!</span>
+  </div>
+</body>
+</html>
