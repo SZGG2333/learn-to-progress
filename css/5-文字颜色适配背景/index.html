@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .banner {
+      height: 500px;
+      line-height: 500px;
+      background: linear-gradient(45deg, #000 0, #000 50%, #fff 50%);
+      text-align: center;
+      cursor: pointer;
+    }
+    .title {
+      font-size: 3em;
+      transition: 0.5s;
+      mix-blend-mode: difference; /* 颜色混合，求差值 */
+      color: #fff;
+    }
+    .banner:hover .title {
+      transform: translateX(-100px);
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <h1 class="title">厚德博学 创新图强</h1>
+  </div>
+</body>
+</html>
