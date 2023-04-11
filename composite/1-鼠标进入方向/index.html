@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .contain {
+      display: block;
+      margin: 100px auto;
+    }
+  </style>
+</head>
+<body>
+  <img src="../../images/bird.png" alt="" class="contain" width="400" height="224">
+  <script>
+    const contain = document.querySelector('.contain');
+    const rect = contain.getBoundingClientRect();
+    console.log(rect);
+    // 用反正切函数求角度,将矩形按对角线分割，分成四块区域，用鼠标进入的位置计算角度，判断落在哪一块获得方向
+    const theta = Math.atan(rect.height / rect.width);
+    contain.addEventListener('mouseenter', e => {
+      const x = e.offsetX - rect.width / 2,
+            y = rect.height / 2 - e.offsetY;
+      const d = Math.atan2(y, x);
+      let dire;
+      if (d < theta && d >= -theta) {
+        dire = 'right';
+      } else if (d >= theta && d < Math.PI - theta) {
+        dire = 'up';
+      } else if (d < -theta && d >= theta - Math.PI) {
+        dire = 'down';
+      } else {
+        dire = 'left';
+      }
+      console.log(dire);
+    })
+  </script>
+</body>
+</html>
