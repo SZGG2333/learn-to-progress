@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    仙路尽头谁为峰，一见无始道成空。
+  </div>
+  <script>
+    document.addEventListener('copy', e => {
+      e.preventDefault();  // 阻止复制
+      e.clipboardData.setData('text/plain', '手握日月摘星辰，世间无我这般人。') // 自定义复制内容
+      console.log(e.target); // 复制的是哪个元素的内容
+    })
+  </script>
+</body>
+</html>
