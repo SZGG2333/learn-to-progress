@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      height: 2000px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+  </div>
+  <script>
+    // 禁用滚轮事件
+    // 滚轮事件执行频率较高，passive默认为true，告诉浏览器不禁用默认事件，这时候禁用的话会报错
+    window.addEventListener('wheel', function(e) {
+      e.preventDefault();
+    }, {
+      passive: false
+    })
+  </script>
+</body>
+</html>
