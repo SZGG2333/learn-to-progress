@@ -1,0 +1,1 @@
+const isArray = Array.isArray || (list => ({}).toString.call(list) === '[object Array]');
