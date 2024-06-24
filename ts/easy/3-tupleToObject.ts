@@ -17,3 +17,11 @@
 
   > 在 Github 上查看：https://tsch.js.org/11/zh-CN
 */
+
+type TupleToObject<T extends readonly (string|number)[]> = {
+  [P in T[number]]: P;
+}
+
+const tuple = ['tesla', 'model 3', 'model X', 'model Y'] as const;
+
+type result = TupleToObject<typeof tuple>;
