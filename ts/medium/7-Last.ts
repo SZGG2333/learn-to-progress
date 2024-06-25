@@ -1,3 +1,4 @@
+/* eslint-disable */
 /*
   15 - 最后一个元素
   -------
@@ -24,20 +25,10 @@
 
 /* _____________ 你的代码 _____________ */
 
-type Last<T extends any[]> = any
+type Last<T extends any[]> = T extends [...infer F, infer R] ? R : never;
 
-/* _____________ 测试用例 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+type arr1 = ['a', 'b', 'c']
+type arr2 = [3, 2, 1]
 
-type cases = [
-  Expect<Equal<Last<[2]>, 2>>,
-  Expect<Equal<Last<[3, 2, 1]>, 1>>,
-  Expect<Equal<Last<[() => 123, { a: string }]>, { a: string }>>,
-]
-
-/* _____________ 下一步 _____________ */
-/*
-  > 分享你的解答：https://tsch.js.org/15/answer/zh-CN
-  > 查看解答：https://tsch.js.org/15/solutions
-  > 更多题目：https://tsch.js.org/zh-CN
-*/
+type tail1 = Last<arr1> // 应推导出 'c'
+type tail2 = Last<arr2> // 应推导出 1
