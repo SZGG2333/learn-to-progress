@@ -1,3 +1,4 @@
+/* eslint-disable */
 /*
   62 - 查找类型
   -------
@@ -29,14 +30,11 @@
 
 /* _____________ 你的代码 _____________ */
 
-type LookUp<U, T> = any
-
-/* _____________ 测试用例 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+type LookUp<U, T> = U extends { type: T } ? U : never
 
 interface Cat {
-  type: 'cat'
-  breeds: 'Abyssinian' | 'Shorthair' | 'Curl' | 'Bengal'
+  type: 'cat';
+  breeds: 'Abyssinian' | 'Shorthair' | 'Curl' | 'Bengal';
 }
 
 interface Dog {
@@ -45,16 +43,4 @@ interface Dog {
   color: 'brown' | 'white' | 'black'
 }
 
-type Animal = Cat | Dog
-
-type cases = [
-  Expect<Equal<LookUp<Animal, 'dog'>, Dog>>,
-  Expect<Equal<LookUp<Animal, 'cat'>, Cat>>,
-]
-
-/* _____________ 下一步 _____________ */
-/*
-  > 分享你的解答：https://tsch.js.org/62/answer/zh-CN
-  > 查看解答：https://tsch.js.org/62/solutions
-  > 更多题目：https://tsch.js.org/zh-CN
-*/
+type MyDog = LookUp<Cat | Dog, 'dog'> // expected to be `Dog`

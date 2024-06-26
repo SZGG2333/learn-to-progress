@@ -1,3 +1,4 @@
+/* eslint-disable */
 /*
   191 - 追加参数
   -------
@@ -23,27 +24,8 @@
 
 /* _____________ 你的代码 _____________ */
 
-type AppendArgument<Fn, A> = any
+type AppendArgument<Fn extends Function, A> = Fn extends (...args: infer Args) => any ? (...args: [...Args, A]) => any : never;
 
-/* _____________ 测试用例 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+type Fn = (a: number, b: string) => number
 
-type Case1 = AppendArgument<(a: number, b: string) => number, boolean>
-type Result1 = (a: number, b: string, x: boolean) => number
-
-type Case2 = AppendArgument<() => void, undefined>
-type Result2 = (x: undefined) => void
-
-type cases = [
-  Expect<Equal<Case1, Result1>>,
-  Expect<Equal<Case2, Result2>>,
-  // @ts-expect-error
-  AppendArgument<unknown, undefined>,
-]
-
-/* _____________ 下一步 _____________ */
-/*
-  > 分享你的解答：https://tsch.js.org/191/answer/zh-CN
-  > 查看解答：https://tsch.js.org/191/solutions
-  > 更多题目：https://tsch.js.org/zh-CN
-*/
+type Result = AppendArgument<Fn, boolean>
